@@ -41,6 +41,10 @@
             </button>
         </div>
 
+        <hr>
+
+        @include('comments.create')
+
 
     </div>
 @endsection

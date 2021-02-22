@@ -19,7 +19,6 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->string('url');
-            $table->string('originalnames');
             
             $table->timestamps();
 

@@ -37,7 +37,7 @@
 
                     <div class="row">
                         <label for="url" class="col-md-4 col-form-label">Add Image</label>
-                        <input type="file" class="form-control-file" id="url" name="url[$image]" accept="images/*" multiple="multiple">
+                        <input type="file" class="form-control-file" id="url" name="url">
 
                         @error('url')
                             <strong>{{ $message }}</strong>
@@ -50,5 +50,6 @@
                 </form>
             </div>
         </div>
+
     </div>
 @endsection

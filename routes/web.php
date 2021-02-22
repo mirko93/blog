@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthorsController;
+use App\Http\Controllers\CommentsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -25,5 +26,8 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/posts/create', [PostsController::class, 'create']);
 Route::post('/posts', [PostsController::class, 'store']);
 Route::get('/posts/{post}', [PostsController::class, 'show']);
+
+// comments
+Route::post('/comments', [CommentsController::class, 'store']);
 
 Route::get('/author/{user}', [AuthorsController::class, 'index'])->name('author.show');
