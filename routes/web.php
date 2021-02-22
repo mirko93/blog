@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthorsController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/posts/create', [PostsController::class, 'create']);
+Route::post('/posts', [PostsController::class, 'store']);
+Route::get('/posts/{post}', [PostsController::class, 'show']);
+
+Route::get('/author/{user}', [AuthorsController::class, 'index'])->name('author.show');
