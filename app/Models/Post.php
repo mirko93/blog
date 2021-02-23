@@ -11,11 +11,6 @@ class Post extends Model
 
     protected $guarded = [];
 
-    public function setOriginalName($value)
-    {
-        $this->attributes['originalname'] = json_encode($value);
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -23,6 +18,6 @@ class Post extends Model
 
     public function comments()
     {
-        return $this->belongsTo(Comment::class);
+        return $this->hasMany(Comment::class)->orderBy('created_at', 'DESC');
     }
 }

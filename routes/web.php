@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\AuthorsController;
-use App\Http\Controllers\CommentsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\PostsController;
 
 /*
@@ -28,6 +28,6 @@ Route::post('/posts', [PostsController::class, 'store']);
 Route::get('/posts/{post}', [PostsController::class, 'show']);
 
 // comments
-Route::post('/comments', [CommentsController::class, 'store']);
+Route::post('/posts/{post}/comments', [PostCommentsController::class, 'store'])->name('posts.comments.store');
 
 Route::get('/author/{user}', [AuthorsController::class, 'index'])->name('author.show');

@@ -3,11 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Models\User;
-use App\Models\ImageUpload;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
 
 class PostsController extends Controller
 {
