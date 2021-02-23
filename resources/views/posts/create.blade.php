@@ -35,8 +35,10 @@
                         @enderror
                     </div>
 
-                    <div class="row">
+                    <div class="row d-flex flex-column ">
                         <label for="url" class="col-md-4 col-form-label">Add Image</label>
+                        <input type="file" class="form-control-file" id="url" name="url">
+                        <input type="file" class="form-control-file" id="url" name="url">
                         <input type="file" class="form-control-file" id="url" name="url">
 
                         @error('url')
@@ -53,3 +55,4 @@
 
     </div>
 @endsection
+

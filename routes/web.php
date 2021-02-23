@@ -23,11 +23,15 @@ Auth::routes();
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+// posts
 Route::get('/posts/create', [PostsController::class, 'create']);
 Route::post('/posts', [PostsController::class, 'store']);
 Route::get('/posts/{post}', [PostsController::class, 'show']);
+Route::delete('/posts/{post}', [PostsController::class, 'destroy']);
 
 // comments
 Route::post('/posts/{post}/comments', [PostCommentsController::class, 'store'])->name('posts.comments.store');
+Route::delete('/comments/{comment}', [PostCommentsController::class, 'destroy']);
 
 Route::get('/author/{user}', [AuthorsController::class, 'index'])->name('author.show');
+

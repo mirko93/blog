@@ -4,8 +4,14 @@
     <div class="container">
         <div class="row">
             <div class="col-9 p-5">
-                <div>
+                <div class="d-flex justify-content-between">
                     <h1>{{ $post->title }}</h1>
+                    <form action="/posts/{{ $post->id }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+
+                        <button type="submit" class="btn btn-danger">Delete Post</button>
+                    </form>
                 </div>
 
                 <div class="">
@@ -22,7 +28,7 @@
 
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                {{-- @foreach ($post => $key as $value) --}}
+                {{-- @foreach ($post->count() as $posts) --}}
                 <div class="carousel-item active">
                     <a href="">
                         <img src="/storage/{{ $post->url }}" class="d-block w-100" alt="...">
@@ -82,8 +88,16 @@
                         </div>
                         <div class="pr-5 sm-text">{{ $comment->created_at->diffForHumans() }}</div>
                         <div class="text-warning">{{ $comment->message }}</div>
-                        
+                        <div class="pt-2">
+                            <form action="/comments/{{ $comment->id }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
                     </div>
+
+                    
                         
                     @endforeach
                 @else

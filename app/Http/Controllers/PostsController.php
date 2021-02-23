@@ -38,6 +38,17 @@ class PostsController extends Controller
 
     public function show(Post $post)
     {
+        // dd($post);
+
         return view('posts.show', compact('post'));
     }
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+
+        return redirect('/author/' . auth()->user()->id);
+    }
+
+    
 }

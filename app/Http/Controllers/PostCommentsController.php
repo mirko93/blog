@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -23,8 +24,13 @@ class PostCommentsController extends Controller
             'message' => $data['message']
         ]);
 
-        
-
         return redirect('/posts/' . $post->id);
+    }
+
+    public function destroy(Comment $comment)
+    {
+        $comment->delete();
+
+        return back();
     }
 }
